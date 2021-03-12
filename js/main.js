@@ -2,10 +2,18 @@ const clearBtn = document.querySelector(".clear-board");
 const board = document.querySelector(".board");
 
 const gameTiles = Object.values(board.childNodes).filter(tile => tile.nodeName !== "#text");
-console.log(gameTiles);
 
 
+clearBtn.addEventListener("click", clearBoard);
 board.addEventListener("click", moveTile);
+
+function clearBoard(){
+    gameTiles.sort((a, b) => Number(a.innerHTML) - Number(b.innerHTML));
+    gameTiles.forEach(tile => {
+        tile.parentNode.removeChild(tile);
+        board.appendChild(tile);
+    });
+}
 
 function moveTile(e){
     // console.log(e.target.classList.contains("tile"));

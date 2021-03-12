@@ -85,14 +85,6 @@ main{
     align-items: center;
 }
 
-.white{
-    background-color: var(--tile-white);
-}
-
-.red{
-    background-color: var(--tile-red);
-}
-
 footer{
     width: 100%;
     padding: 1.25rem;
@@ -104,6 +96,18 @@ footer{
 footer a{
     color: var(--text-color);
     font-weight: 700;
+}
+
+.white{
+    background-color: var(--tile-white);
+}
+
+.red{
+    background-color: var(--tile-red);
+}
+
+.empty{
+    color: var(--tile-background);
 }
 
 @media only screen and (max-width: 500px){
