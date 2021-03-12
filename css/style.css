@@ -100,6 +100,7 @@ footer a{
 @media only screen and (max-width: 500px){
     header{
         font-size: 2rem;
+        padding: 2rem 2rem 0rem 2rem;
     }
 
     main{
