@@ -21,7 +21,6 @@
     background-color: var(--page-background);
     color: var(--text-color);
 
-    
     font-size: 1.25rem;
 }
 
@@ -41,8 +40,19 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     
-    
+}
+.btn-container{
+    width: 90%;
+    margin-bottom: 2rem;
+}
+
+.clear-board{
+    border: 4px solid var(--board-background);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    padding: 1rem 2rem;
 }
 
 .board{
@@ -87,7 +97,6 @@ footer{
     width: 100%;
     padding: 1.25rem;
     text-align: center;
-
     background-color: var(--footer-background);
     font-size: 1rem;
 }
@@ -105,6 +114,14 @@ footer a{
 
     main{
         width: 100%;
+    }
+
+    .btn-container{
+        width: 280px;
+    }
+
+    .clear-board{
+        padding: 0.5rem 1rem;
     }
 
     .board{

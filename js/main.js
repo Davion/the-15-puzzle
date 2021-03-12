@@ -1,3 +1,4 @@
+const clearBtn = document.querySelector(".clear-board");
 const board = document.querySelector(".board");
 
 const gameTiles = Object.values(board.childNodes).filter(tile => tile.nodeName !== "#text");
