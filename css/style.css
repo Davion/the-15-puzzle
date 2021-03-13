@@ -46,9 +46,14 @@ main{
 .btn-container{
     width: 90%;
     margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.clear-board{
+
+.clear-board,
+.shuffle-board{
     border: 4px solid var(--board-background);
     border-radius: 0.5rem;
     cursor: pointer;
@@ -124,7 +129,8 @@ footer a{
         width: 280px;
     }
 
-    .clear-board{
+    .clear-board,
+    .shuffle-board{
         padding: 0.5rem 1rem;
     }
 
