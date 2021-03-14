@@ -68,7 +68,7 @@ function moveTile(e){
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", function() {
       navigator.serviceWorker
-        .register("/todo-app-js-pwa/serviceWorker.js")
+        .register("/the-15-puzzle/sw.js")
         .then(res => console.log("service worker registered"))
         .catch(err => console.log("service worker not registered", err));
     });
