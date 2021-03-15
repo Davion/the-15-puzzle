@@ -1,10 +1,10 @@
-const staticCascheName = "15-puzzle-static-v1.0";
+const staticCascheName = "15-puzzle-static-v1.1";
 const assets = [
   "/the-15-puzzle/",
   "/the-15-puzzle/index.html",
   "/the-15-puzzle/css/normalize.css",
   "/the-15-puzzle/css/reset.css",
-  "/the-15-puzzle/css/styles.css",
+  "/the-15-puzzle/css/style.css",
   "/the-15-puzzle/js/main.js",
   "/the-15-puzzle/icons/15-puzzle-icon.png"
 ];
