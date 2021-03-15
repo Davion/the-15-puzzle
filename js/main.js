@@ -36,7 +36,7 @@ function shuffleBoard(){
 }
 
 function moveTile(e){
-    // console.log(e.target.classList.contains("tile"));
+
     if(e.target.classList.contains("tile")){
         let targetIdx = gameTiles.indexOf(e.target)
         let moved = false;
@@ -55,7 +55,6 @@ function moveTile(e){
         }
 
         if(moved){
-            console.log("moved");
             gameTiles.forEach(tile => {
                 tile.parentNode.removeChild(tile);
                 board.appendChild(tile);
