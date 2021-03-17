@@ -1,4 +1,4 @@
-const staticCascheName = "15-puzzle-static-v1.1";
+const staticCascheName = "15-puzzle-static-v2.0";
 const assets = [
   "/the-15-puzzle/",
   "/the-15-puzzle/index.html",

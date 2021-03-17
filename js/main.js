@@ -10,12 +10,37 @@ shuffleBtn.addEventListener("click", shuffleBoard);
 board.addEventListener("click", moveTile);
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    if(localStorage.getItem("15-puzzle-gameBoard") !== null){
+        let localGameTiles = JSON.parse(localStorage.getItem("15-puzzle-gameBoard"));
+        let helperArray = [];
+
+        //put gameTiles array values in the helper array ordered as in LOCAL 
+        gameTiles.forEach(tile => {
+            localIndex = localGameTiles.indexOf(tile.textContent);
+            helperArray[localIndex] = tile;
+        });
+
+        //copy values from helper array in gameTiles array
+        helperArray.forEach(tile => {
+            gameTiles.shift();
+            gameTiles.push(tile);
+        });
+        
+        gameTiles.forEach(tile => {
+            tile.parentNode.removeChild(tile);
+            board.appendChild(tile);
+        });
+    }
+});
+
 function clearBoard(){
     gameTiles.sort((a, b) => Number(a.innerHTML) - Number(b.innerHTML));
     gameTiles.forEach(tile => {
         tile.parentNode.removeChild(tile);
         board.appendChild(tile);
     });
+    saveLocalGame();
 }
 
 function shuffleBoard(){
@@ -32,7 +57,7 @@ function shuffleBoard(){
         tile.parentNode.removeChild(tile);
         board.appendChild(tile);
     });
-    
+    saveLocalGame();
 }
 
 function moveTile(e){
@@ -59,8 +84,16 @@ function moveTile(e){
                 tile.parentNode.removeChild(tile);
                 board.appendChild(tile);
             });
+            saveLocalGame();
         }
     }
+}
+
+// LOCAL STORAGE
+function saveLocalGame(){
+    let gameBoardValues = [];
+    gameTiles.forEach(tile => gameBoardValues.push(tile.textContent));
+    localStorage.setItem("15-puzzle-gameBoard", JSON.stringify(gameBoardValues));
 }
 
 // Register Service Worker
