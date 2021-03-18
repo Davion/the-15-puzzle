@@ -6,7 +6,7 @@ const assets = [
   "/the-15-puzzle/css/reset.css",
   "/the-15-puzzle/css/style.css",
   "/the-15-puzzle/js/main.js",
-  "/the-15-puzzle/icons/15-puzzle-icon.png"
+  "/the-15-puzzle/icons/15-puzzle_icon.png"
 ];
 
 self.addEventListener("install", installEvent => {
