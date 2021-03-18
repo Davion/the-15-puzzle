@@ -34,6 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+document.addEventListener("keydown", moveTileOnKeyDown);
+
 function clearBoard(){
     gameTiles.sort((a, b) => Number(a.innerHTML) - Number(b.innerHTML));
     gameTiles.forEach(tile => {
@@ -86,6 +88,54 @@ function moveTile(e){
             });
             saveLocalGame();
         }
+    }
+}
+
+function moveTileOnKeyDown(keyCode){
+    let moved = false;
+    let tempTileValues = [];
+    gameTiles.forEach(tile => tempTileValues.push(tile.textContent));
+    let emptyTIleIndex = tempTileValues.indexOf("16");
+    console.log(emptyTIleIndex);
+    switch(keyCode.code){
+        case "ArrowUp":
+            console.log("UP");
+            if(gameTiles[emptyTIleIndex + 4]){
+                [gameTiles[emptyTIleIndex], gameTiles[emptyTIleIndex + 4]] = [gameTiles[emptyTIleIndex + 4], gameTiles[emptyTIleIndex]];
+                moved = true;
+            }
+            break;
+        case "ArrowRight":
+            console.log("RIGHT");
+            if(emptyTIleIndex % 4 !== 0){
+                [gameTiles[emptyTIleIndex], gameTiles[emptyTIleIndex - 1]] = [gameTiles[emptyTIleIndex - 1], gameTiles[emptyTIleIndex]];
+                moved = true;
+            }
+            break;
+        case "ArrowDown":
+            console.log("DOWN");
+            if(gameTiles[emptyTIleIndex - 4]){
+                [gameTiles[emptyTIleIndex], gameTiles[emptyTIleIndex - 4]] = [gameTiles[emptyTIleIndex - 4], gameTiles[emptyTIleIndex]];
+                moved = true;
+            }
+            break;
+        case "ArrowLeft":
+            console.log("LEFT");
+            if(emptyTIleIndex % 4 !== 3){
+                [gameTiles[emptyTIleIndex], gameTiles[emptyTIleIndex + 1]] = [gameTiles[emptyTIleIndex + 1], gameTiles[emptyTIleIndex]];
+                moved = true;
+            }
+            break;
+        default:
+            break;
+    }
+    
+    if(moved){
+        gameTiles.forEach(tile => {
+            tile.parentNode.removeChild(tile);
+            board.appendChild(tile);
+        });
+        saveLocalGame();
     }
 }
 
